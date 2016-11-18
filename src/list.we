@@ -1,0 +1,93 @@
+<template>
+<div style="flex-direction: column;">
+  <wxc-tabbar class="tabbar" tab-items={{tabItems}}></wxc-tabbar>
+  <slider class="slider" interval="{{intervalValue}}" auto-play="{{isAutoPlay}}" >
+      <div class="slider-pages" repeat="{{itemList}}" onclick="goWeexSite" >
+        <image class="thumb" src="{{pictureUrl}}"></image>
+        <text class="title">{{title}}</text>
+      </div>
+    </slider>
+  <div class="container"  >
+    <div class="cell">
+       <image class="thumb" src="http://aixuedaiimg.oss-cn-hangzhou.aliyuncs.com/null/201621/202617727/20160201202617.png"></image>  
+       <text class="title">爱学贷Logo</text>
+    </div>
+    <div class="cell">
+       <image class="thumb" src="http://t.cn/RGE3AJt"></image>  
+       <text class="title">JavaScript</text>
+    </div>
+    <div class="cell">
+       <image class="thumb" src="http://t.cn/RGE31hq"></image>  
+       <text class="title">Objective C</text>
+    </div>
+  </div>
+</div>
+</template>
+
+<script>
+require('weex-components');
+module.exports = {
+    data: {
+      intervalValue:"1000",
+      isShowIndicators:"true",
+      isAutoPlay:"true",
+      itemList: [
+        {title: '爱学贷Logo', pictureUrl: 'http://aixuedaiimg.oss-cn-hangzhou.aliyuncs.com/null/201621/202617727/20160201202617.png'},
+        {title: 'Objective C', pictureUrl: 'http://t.cn/RGE31hq'},
+        {title: 'JavaScript', pictureUrl: 'http://t.cn/RGE3AJt'}
+      ],
+      tabItems: [
+          {
+              index: 0,
+              title: "图片",
+              titleColor: 0x0,
+              icon: "",
+              image: "http://gtms01.alicdn.com/tps/i1/TB1qw.hMpXXXXagXXXX9t7RGVXX-46-46.png",
+              selectedImage: "http://gtms04.alicdn.com/tps/i4/TB16jjPMpXXXXazXVXX9t7RGVXX-46-46.png",
+              src: "#",
+              visibility: "visible"
+          },
+          {
+              index: 1,
+              title: "阅读",
+              titleColor: 0x0,
+              icon: "",
+              image: "http://gtms03.alicdn.com/tps/i3/TB1LEn9MpXXXXaUXpXX9t7RGVXX-46-46.png",
+              selectedImage: "http://gtms02.alicdn.com/tps/i2/TB1qysbMpXXXXcnXXXX9t7RGVXX-46-46.png",
+              src: "#",
+              visibility: "hidden"
+          },
+          {
+              index: 2,
+              title: "电影",
+              titleColor: 0x0,
+              icon: "",
+              image: "http://gtms01.alicdn.com/tps/i1/TB1B0v5MpXXXXcvXpXX9t7RGVXX-46-46.png",
+              selectedImage: "http://gtms04.alicdn.com/tps/i4/TB1NxY5MpXXXXcrXpXX9t7RGVXX-46-46.png",
+              src: "#",
+              visibility: "hidden"
+          }
+      ]
+    },
+    methods: {
+      goWeexSite: function () {
+        this.$openURL('http://alibaba.github.io/weex/')
+      }
+    }
+}
+</script>
+<style>
+  .cell{margin-top:10 ; margin-left:10 ; flex-direction: row; }
+  .thumb {width: 200; height: 200; }
+  .title {text-align: center ; flex: 1; color: grey; font-size: 50; }  
+  .slider {
+    margin: 18;
+    width: 714;
+    height: 230;
+  }
+  .slider-pages {
+    flex-direction: row;
+    width: 714;
+    height: 200;
+  }
+</style>
